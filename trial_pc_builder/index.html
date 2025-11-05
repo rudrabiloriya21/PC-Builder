@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | Trial PC Builder</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="login-page">
+  <div class="login-container">
+    <h1>🔐 Trial PC Builder</h1>
+    <h2>Login</h2>
+
+    <input type="text" id="username" placeholder="Enter your username">
+    <input type="password" id="password" placeholder="Enter your password">
+    <button onclick="login()">Login</button>
+
+    <p class="or">or</p>
+    <button class="skip" onclick="skipLogin()">Skip Login</button>
+  </div>
+
+  <script>
+    function login() {
+      const user = document.getElementById("username").value;
+      if (user.trim() === "") {
+        alert("Please enter a username.");
+        return;
+      }
+      localStorage.setItem("user", user);
+      window.location.href = "builder.html";
+    }
+
+    function skipLogin() {
+      window.location.href = "builder.html";
+    }
+  </script>
+</body>
+</html>

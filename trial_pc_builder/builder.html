@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trial PC Builder</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>🖥️ Trial PC Builder</h1>
+    <p id="welcome-text"></p>
+
+    <div class="currency-selector">
+      <label for="currency">Currency: </label>
+      <select id="currency" onchange="changeCurrency()">
+        <option value="USD" selected>USD ($)</option>
+        <option value="INR">INR (₹)</option>
+        <option value="EUR">EUR (€)</option>
+        <option value="JPY">JPY (¥)</option>
+        <option value="GBP">GBP (£)</option>
+      </select>
+    </div>
+  </header>
+
+  <main id="pc-builder" class="shop"></main>
+
+  <div class="bottom-bar">
+    <h2 id="total">Total: $0</h2>
+    <button onclick="saveBuild()">💾 Save Build</button>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    const user = localStorage.getItem("user");
+    if (user) {
+      document.getElementById("welcome-text").textContent = `Welcome, ${user}!`;
+    } else {
+      document.getElementById("welcome-text").textContent = "Welcome, Guest!";
+    }
+  </script>
+</body>
+</html>
